@@ -101,4 +101,51 @@
       qa('[data-topic]').forEach(x => x.classList.toggle('on', x === c));
     });
   });
+  /* client testimonials: rotating carousel (4 / 2 / 1 cards per view). Slides one card at a time and loops forever.
+     Arrows, swipe, arrow keys; add data-autoplay="6000" on the .tcar element to rotate automatically. */
+  document.addEventListener('DOMContentLoaded', () => {
+    qa('[data-tcar]').forEach(root => {
+      const track = q('.tcar-track', root), view = q('.tcar-viewport', root), prev = q('.tcar-prev', root), next = q('.tcar-next', root);
+      if (!track || !view || !prev || !next) return;
+      const wide = matchMedia('(min-width:1001px)'), dur = calm ? 0 : 450, ease = 'cubic-bezier(.4,0,.2,1)';
+      const cards = () => [...track.children];
+      const dir = () => getComputedStyle(root).direction === 'rtl' ? 1 : -1;          // slide direction (RTL aware)
+      const step = () => track.children[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+      const mark = () => { const c = cards(), f = wide.matches && c.length > 2 ? 1 : 0; c.forEach((el, i) => el.classList.toggle('is-featured', i === f)); };
+      const ghost = el => { const g = el.cloneNode(true); g.setAttribute('aria-hidden', 'true'); g.classList.remove('is-featured'); return g; };
+      let busy = false, timer;
+
+      const move = forward => {
+        const c = cards();
+        if (busy || c.length < 2) return;
+        if (!dur) { forward ? track.append(c[0]) : track.prepend(c[c.length - 1]); mark(); return; }   // reduced motion: swap instantly
+        busy = true;
+        const d = step() * dir(), end = () => { track.style.transition = 'none'; busy = false; mark(); };
+        if (forward) {
+          const g = ghost(c[0]); track.append(g);
+          track.style.transition = `transform ${dur}ms ${ease}`; track.style.transform = `translateX(${d}px)`;
+          setTimeout(() => { c[0].remove(); g.removeAttribute('aria-hidden'); track.style.transform = ''; end(); }, dur + 30);
+        } else {
+          const g = ghost(c[c.length - 1]); track.prepend(g);
+          track.style.transition = 'none'; track.style.transform = `translateX(${d}px)`; void track.offsetWidth;
+          track.style.transition = `transform ${dur}ms ${ease}`; track.style.transform = '';
+          setTimeout(() => { c[c.length - 1].remove(); g.removeAttribute('aria-hidden'); end(); }, dur + 30);
+        }
+      };
+      const go = forward => { move(forward); auto(); };
+      const auto = () => { clearInterval(timer); const ms = +root.dataset.autoplay; if (ms && !calm) timer = setInterval(() => move(true), ms); };
+
+      prev.addEventListener('click', () => go(false));
+      next.addEventListener('click', () => go(true));
+      root.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') go((e.key === 'ArrowRight') === (dir() === -1)); });
+      let x0 = null;                                                                   // swipe
+      view.addEventListener('pointerdown', e => { x0 = e.clientX; });
+      view.addEventListener('pointerup', e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 45) go((dx < 0) === (dir() === -1)); });
+      view.addEventListener('pointercancel', () => { x0 = null; });
+      root.addEventListener('mouseenter', () => clearInterval(timer)); root.addEventListener('mouseleave', auto);
+      root.addEventListener('focusin', () => clearInterval(timer)); root.addEventListener('focusout', auto);
+      wide.addEventListener('change', mark);
+      mark(); auto();
+    });
+  });
 })();

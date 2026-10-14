@@ -52,7 +52,7 @@ html[data-theme=dark] .sec.tint{background:rgba(18,35,59,.4)}
 .card.h:hover .ch{background:var(--btn);color:var(--btnT);transform:translateY(-2px) rotate(-5deg) scale(1.06)}
 .card.sc.h:hover::before{opacity:0}
 .sx{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-.sx b{display:block;font-size:clamp(2.2rem,4.4vw,3.4rem);font-weight:700;letter-spacing:-.035em;line-height:1.1;background:linear-gradient(180deg,#fff,#8FE6E1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sx b{display:block;font-size:clamp(2.2rem,4.4vw,3.4rem);font-weight:700;letter-spacing:-.035em;line-height:1.1;background:linear-gradient(180deg,#fff,#29ebe0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .sx span{display:block;margin-top:6px;color:#BFD0E4;font-size:.95rem}
 @media(max-width:760px){.sx{grid-template-columns:1fr 1fr;row-gap:32px}}
 .proc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:p}
@@ -136,3 +136,43 @@ html[data-theme=dark] .sec.tint{background:rgba(18,35,59,.4)}
 /* small-screen refinements for the newest images and the testimonial controls */
 @media(max-width:640px){.fi img[style*="21/9"]{aspect-ratio:16/10!important}.tp-i{aspect-ratio:16/10}}
 @media(max-width:400px){.ts-nav{gap:8px}.ts-dots{gap:6px}.ts-dots button{width:40px;height:40px}}
+
+/* ===== Responsive refinements (phone 360, tablet 768, desktop 1204) ===== */
+/* Three-card rows stay in one row on tablets (they used to wrap as 2 + 1 orphan card) */
+@media(min-width:700px) and (max-width:1000px){.cards.c3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:641px) and (max-width:699px){.cards.c3>:last-child:nth-child(odd){grid-column:1/-1}}
+/* Step lists: three-step version keeps three columns on tablets */
+@media(min-width:561px) and (max-width:900px){.proc.p3{grid-template-columns:repeat(3,1fr);gap:20px}.proc.p3 li:nth-child(2)::after{display:block}}
+/* Step lists on phones: icon on the left, label / title / text stacked on the right (the title used to be squeezed under the icon) */
+@media(max-width:560px){
+  .proc li{column-gap:16px;row-gap:0;align-content:start}
+  .proc li>.n{grid-column:1;grid-row:1/span 3}
+  .proc li>:not(.n){grid-column:2}
+}
+
+/* ---------- client testimonial carousel (.tcar): 4 cards per view on desktop, 2 on tablet, 1 on phones ---------- */
+.tcar{--per:4;--gap:18px}
+.tcar-viewport{overflow:hidden;padding:14px 0 22px;margin-block:-14px -22px;touch-action:pan-y}
+.tcar-track{display:flex;align-items:stretch;gap:var(--gap)}
+.tcar-card{flex:0 0 calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));min-width:0;margin:0;display:flex;flex-direction:column;padding:26px 22px;background:var(--surf);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);transition:border-color .35s,box-shadow .35s,translate .35s}
+.tcar-card.is-featured{border-color:var(--acc);box-shadow:var(--shH);translate:0 -4px}
+.tcar-card .stars{margin-bottom:16px;color:var(--acc);font-size:1rem}
+.tcar-card blockquote{flex:1;margin:0 0 22px;color:var(--ink);font-size:.95rem;line-height:1.75}
+.tcar-who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.tcar-who>span:last-child{min-width:0}
+.tcar-who b{display:block;font-size:.88rem;line-height:1.4}
+.tcar-who small{display:block;color:var(--mute);font-size:.78rem;line-height:1.5}
+.tcar-av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--acc);font-size:.75rem;font-weight:700}
+.tcar-nav{display:flex;justify-content:center;gap:14px;margin-top:26px}
+.tcar-btn{width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--surf);color:var(--acc);display:grid;place-items:center;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.tcar-btn:hover{background:var(--btn);color:var(--btnT);border-color:var(--btn)}
+.tcar-btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.tcar-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+[dir=rtl] .tcar-btn svg{transform:scaleX(-1)}
+.tcar-foot{display:grid;grid-template-columns:1fr 22px 1fr;align-items:center;gap:18px;max-width:500px;margin:38px auto 0;text-align:center}
+.tcar-foot>span{height:1px;background:var(--line)}
+.tcar-foot svg{width:20px;height:20px;fill:none;stroke:var(--acc);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tcar-foot p{grid-column:1/-1;margin:0;color:var(--mute);font-size:.68rem;font-weight:600;letter-spacing:.12em;line-height:1.8;text-transform:uppercase}
+@media(max-width:1000px){.tcar{--per:2}}
+@media(max-width:600px){.tcar{--per:1}.tcar-card{padding:24px 20px}.tcar-foot{margin-top:30px;gap:12px}}
+@media(prefers-reduced-motion:reduce){.tcar-card,.tcar-btn{transition:none}}
