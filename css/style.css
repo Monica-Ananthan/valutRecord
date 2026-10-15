@@ -3784,15 +3784,28 @@ html[data-theme="dark"] .bar i {
     background-size: contain;
 }
 .full-banner.bub-inc{
-    background-image: url(../img/bubble1.jpg);
+    /* background-image: url(../img/bubble1.jpg); */
+  background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, 
+  rgb(0 91 45 / 61%) 48%, 
+  rgb(39 213 255 / 15%) 100%),url(../img/bubble1.jpg);
     background-position: center;
     background-size: contain;
     background-color:#fff;
 }
 .full-banner.sec-card-ban{
-    background-image: url(../img/check-data1.png);
-    background-position: bottom;
-    background-size: contain;
+    background-image: linear-gradient(90deg, rgb(166 228 245 / 40%) 0%,
+     rgb(14 16 15 / 76%) 48%, rgb(115 213 182 / 37%) 100%), 
+     url(../img/check-data1.png);
+    background-size: 70%;
+    background-repeat: repeat;
+    background-position: center;
+}
+.full-banner.loc-ban{
+    background-image:url(../img/loc-ban.jpg);
+}
+.full-banner.write-ban{
+      background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, rgba(18, 32, 25, 0.76) 48%, rgb(115 213 182 / 37%) 100%), url(../img/con-acc.jfif);
+    background-size: cover;
 }
 .full-banner.ver-ban{
    background-color: #0f2033;
@@ -3826,8 +3839,17 @@ html[data-theme="dark"] .bar i {
    url(../img/ourTeam.png);
 }
 .full-banner.bubble-grp{
-  background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, rgb(18 32 25 / 46%) 48%, 
-  rgba(18, 32, 25, 0.25) 100%), url(../img/bubble-grp1.jpg);
+  /* background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, rgb(18 32 25 / 46%) 48%, 
+  rgba(18, 32, 25, 0.25) 100%), url(../img/bubble-grp1.jpg); */
+  background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, rgb(0 91 45 / 61%) 48%, 
+  rgb(39 213 255 / 15%) 100%), url(../img/bubble-grp1.jpg);
+  background-position: center;
+    background-size: auto;
+    background-color: #fff;
+        height: 700px;
+}
+.full-banner.bubble-grp .wrap{
+  padding-top: 50px;
 }
 .full-banner.form-bub{
     background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, 
@@ -3835,15 +3857,29 @@ html[data-theme="dark"] .bar i {
     background-size: contain;
     background-position: center;
 }
+.full-banner.guide-ban {
+    background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.25) 100%), 
+    url(../img/guide-ban.jpg);
+    height: 390px;
+    padding: 20px;
+    background-size: 100% 100%;
+}
 .full-banner .sh h2,
 .full-banner .sh p,
 .full-banner .sh .kicker{
   color:#fff;
 }
-.full-banner.talk-ban .sh h2,
-.full-banner.talk-ban .sh p,
-.full-banner.talk-ban .sh .kicker{
-  color:inherit;
+.full-banner.loc-ban .sh h2, 
+.full-banner.talk-ban .sh h2{
+  color:var(--ink)
+} 
+.full-banner.loc-ban .sh p, 
+.full-banner.talk-ban .sh p{
+      color: var(--mute);
+}
+.full-banner.loc-ban .sh .kicker,
+.full-banner.talk-ban .sh .kicker {
+    color: var(--acc);
 }
 @media (max-width: 760px) {
     .sx.abt-banr {
@@ -3867,4 +3903,55 @@ html[data-theme="dark"] .bar i {
     flex-wrap: nowrap;
     overflow-x: scroll;
   }
+}
+.sec.res-sec {
+    position: relative;
+    height: 600px;
+    padding-top: 0;
+}
+.res-sec .cards.c3 {
+    position: absolute;
+    margin: auto;
+    bottom: 90px;
+    width: 78%;
+    left: 0;
+    right: 0;
+}
+.res-sec .sh.c{
+  padding-top: 6%;
+}
+@media (max-width: 760px) {
+  #bsum .stat:nth-child(3),
+  #rsum .stat:nth-child(3) {
+  grid-column: span 2;      
+  justify-self: center;     
+  width: 100%;        
+}
+}
+@media (max-width: 768px) {
+.full-banner.ver-ban {
+    background-position: 40% 20%;
+    background-size: 85%;
+}
+.full-banner.ver-ban .cards.c4{
+      padding-top: 80%;
+}
+.bg-img-section .indus-banr{
+  display: grid;
+}
+.sec.res-sec,
+.full-banner.bubble-grp{
+  height:auto
+}
+.full-banner.bubble-grp .wrap {
+    padding-top: 0;
+}
+.res-sec .cards.c3 {
+    position: unset;
+    width: auto;
+}
+.full-banner.guide-ban{
+  height: auto;
+  background-size: cover;
+}
 }
