@@ -299,82 +299,89 @@
       </section>
       <section class="sec tint">
         <div class="wrap">
-          <div class="sh">
-            <span class="kicker">Send a message</span>
-            <h2>How can we help?</h2>
-            <p class="mu">Choose a topic and tell us what you need.</p>
-          </div>
-          <div class="two">
-            <div class="panel">
-              <div class="chips" style="margin-bottom: 6px">
-                <button
-                  type="button"
-                  class="chp on"
-                  data-topic="Request a quote"
-                >
-                  Request a quote</button
-                ><button
-                  type="button"
-                  class="chp"
-                  data-topic="Schedule a pickup"
-                >
-                  Schedule a pickup</button
-                ><button
-                  type="button"
-                  class="chp"
-                  data-topic="Book a facility tour"
-                >
-                  Book a facility tour</button
-                ><button type="button" class="chp" data-topic="Something else">
-                  Something else
-                </button>
-              </div>
-              <form id="cf">
-                <label for="cn">Name</label
-                ><input
-                  id="cn"
-                  required
-                  placeholder="Your name"
-                  autocomplete="name"
-                /><label for="ce">Work email</label
-                ><input
-                  id="ce"
-                  type="email"
-                  required
-                  placeholder="you@company.com"
-                  autocomplete="email"
-                /><label for="ct">Topic</label
-                ><select id="ct">
-                  <option>Request a quote</option>
-                  <option>Schedule a pickup</option>
-                  <option>Book a facility tour</option>
-                  <option>Something else</option></select
-                ><label for="cm">Message</label
-                ><textarea
-                  id="cm"
-                  required
-                  placeholder="Roughly how many boxes, and what do you need?"
-                ></textarea>
-                <p style="margin: 20px 0 0">
-                  <button class="btn">Send message</button>
-                </p>
-              </form>
+          <div class="">
+            <div class="sh">
+              <span class="kicker">Send a message</span>
+              <h2>How can we help?</h2>
+              <p class="mu">Choose a topic and tell us what you need.</p>
             </div>
-            <div class="panel">
-              <h3>What happens next</h3>
-              <ul class="ck">
-                <li>We reply within one business day</li>
-                <li>A named contact is assigned to you</li>
-                <li>You receive a clear, itemized quote</li>
-              </ul>
-              <p class="mu" style="margin: 20px 0 0">
-                Existing clients can manage requests in the
-                <a href="login.html" style="color: var(--acc)">client portal</a
-                >, or
-                <a href="register.html" style="color: var(--acc)"
-                  >create an account</a
-                >.
-              </p>
+            <div class="two">
+              <div class="panel">
+                <div class="chips" style="margin-bottom: 6px">
+                  <button
+                    type="button"
+                    class="chp on"
+                    data-topic="Request a quote"
+                  >
+                    Request a quote</button
+                  ><button
+                    type="button"
+                    class="chp"
+                    data-topic="Schedule a pickup"
+                  >
+                    Schedule a pickup</button
+                  ><button
+                    type="button"
+                    class="chp"
+                    data-topic="Book a facility tour"
+                  >
+                    Book a facility tour</button
+                  ><button
+                    type="button"
+                    class="chp"
+                    data-topic="Something else"
+                  >
+                    Something else
+                  </button>
+                </div>
+                <form id="cf">
+                  <label for="cn">Name</label
+                  ><input
+                    id="cn"
+                    required
+                    placeholder="Your name"
+                    autocomplete="name"
+                  /><label for="ce">Work email</label
+                  ><input
+                    id="ce"
+                    type="email"
+                    required
+                    placeholder="you@company.com"
+                    autocomplete="email"
+                  /><label for="ct">Topic</label
+                  ><select id="ct">
+                    <option>Request a quote</option>
+                    <option>Schedule a pickup</option>
+                    <option>Book a facility tour</option>
+                    <option>Something else</option></select
+                  ><label for="cm">Message</label
+                  ><textarea
+                    id="cm"
+                    required
+                    placeholder="Roughly how many boxes, and what do you need?"
+                  ></textarea>
+                  <p style="margin: 20px 0 0">
+                    <button class="btn">Send message</button>
+                  </p>
+                </form>
+              </div>
+              <div class="panel">
+                <h3>What happens next</h3>
+                <ul class="ck">
+                  <li>We reply within one business day</li>
+                  <li>A named contact is assigned to you</li>
+                  <li>You receive a clear, itemized quote</li>
+                </ul>
+                <p class="mu" style="margin: 20px 0 0">
+                  Existing clients can manage requests in the
+                  <a href="login.html" style="color: var(--acc)"
+                    >client portal</a
+                  >, or
+                  <a href="register.html" style="color: var(--acc)"
+                    >create an account</a
+                  >.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -462,10 +469,10 @@
           </div>
         </div>
       </section>
-      <section class="sec tint">
+      <section class="sec tint tour-section">
         <div class="wrap">
-          <div class="fr">
-            <div>
+          <div class="fr tour-layout">
+            <div class="tour-content">
               <span class="kicker">See it in person</span>
               <h2>Walk the aisles with us</h2>
               <p class="mu">
@@ -478,11 +485,30 @@
                 <li>Bring your questions</li>
               </ul>
             </div>
-            <div class="fi">
-              <img
-                src="img/banner-home.jpg"
-                alt="Aisles of barcoded archive boxes in a records facility"
-              />
+            <div class="fi tour-gallery">
+              <div class="tour-image tour-image-main">
+                <img
+                  src="img/asile.jpg"
+                  alt="Aisles of barcoded archive boxes in a records facility"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="tour-image tour-image-small">
+                <img
+                  src="img/asile3.jpg"
+                  alt="Organized archive boxes on storage shelves"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="tour-image tour-image-small">
+                <img
+                  src="img/asile5.jpg"
+                  alt="Records storage aisle inside the facility"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -496,26 +522,10 @@
               <p>Call us on 1-800-555-0142 and we will help you right away.</p>
               <div class="row cta-actions">
                 <a class="btn" href="login.html"
-                >Client login<svg class="ic" aria-hidden="true">
-                  <use href="#i-arrow" /></svg></a
-              ><a class="btn ghost" href="register.html">Create account</a>
+                  >Client login<svg class="ic" aria-hidden="true">
+                    <use href="#i-arrow" /></svg></a
+                ><a class="btn ghost" href="register.html">Create account</a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="sec">
-        <div class="wrap">
-          <div class="cta">
-            <div>
-              <h2>Prefer to talk it through?</h2>
-              <p>Call us on 1-800-555-0142 and we will help you right away.</p>
-            </div>
-            <div class="row">
-              <a class="btn" href="login.html"
-                >Client login<svg class="ic" aria-hidden="true">
-                  <use href="#i-arrow" /></svg></a
-              ><a class="btn ghost" href="register.html">Create account</a>
             </div>
           </div>
         </div>
