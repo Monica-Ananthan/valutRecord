@@ -176,3 +176,14 @@ html[data-theme=dark] .sec.tint{background:rgba(18,35,59,.4)}
 @media(max-width:1000px){.tcar{--per:2}}
 @media(max-width:600px){.tcar{--per:1}.tcar-card{padding:24px 20px}.tcar-foot{margin-top:30px;gap:12px}}
 @media(prefers-reduced-motion:reduce){.tcar-card,.tcar-btn{transition:none}}
+
+/* FAQ filter bar: search on its own row, topic tabs stay in ONE row (they scroll sideways instead of wrapping) */
+@media(max-width:900px){
+  .fq-t{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:12px}
+  .fq-t input{flex:none;width:100%;max-width:none;min-width:0}
+  .fq-t .chips{min-width:0;max-width:100%}
+  .fq-t .chips{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+  .fq-t .chips::-webkit-scrollbar{display:none}
+  .fq-t .chp{flex:none;white-space:nowrap}
+}
+@media(pointer:coarse){.fq-t .chp{min-height:40px}}

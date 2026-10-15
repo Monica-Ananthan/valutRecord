@@ -3475,6 +3475,11 @@ html[data-theme="dark"] .bar i {
     background-position: 60% center;
   }
 
+.full-banner.ver-ban .cards.c4 {
+    width: 100% !important;
+    padding-top: 27px;
+    grid-template-columns: repeat(1, 1fr) !important;
+}
   .cta-content {
     max-width: 500px;
   }
@@ -3824,6 +3829,12 @@ html[data-theme="dark"] .bar i {
   background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, rgb(18 32 25 / 46%) 48%, 
   rgba(18, 32, 25, 0.25) 100%), url(../img/bubble-grp1.jpg);
 }
+.full-banner.form-bub{
+    background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%, 
+    rgba(18, 32, 25, 0.76) 48%, rgb(115 213 182 / 37%) 100%), url(../img/bubble3.png);
+    background-size: contain;
+    background-position: center;
+}
 .full-banner .sh h2,
 .full-banner .sh p,
 .full-banner .sh .kicker{
@@ -3840,8 +3851,20 @@ html[data-theme="dark"] .bar i {
         grid-template-columns: 1fr 1fr;
         row-gap: 32px;
     }
+    .sx.sec-banr.stats-banner {
+      display: grid;
+    }
 }
 .sec-to .tour-layout {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1.15fr);
+}
+@media (max-width: 900px){
+  .sec-to .tour-layout{
+     grid-template-columns: 1fr;
+  }
+  .tab-in .tabs{
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
 }
