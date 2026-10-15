@@ -3516,7 +3516,7 @@ html[data-theme="dark"] .bar i {
 
   .cta-actions .btn {
     justify-content: center;
-    width: 100%;
+    width: fit-content;
   }
 }
 
@@ -3758,18 +3758,46 @@ html[data-theme="dark"] .bar i {
     background-position: center;
     background-size: cover;
 }
+.full-banner.ver-ban{
+   background-color: #0f2033;
+  background-image: url(../img/check-data.png);
+   background-position: 6% 90%;
+    background-size: 48% 60%;
+}
+.full-banner.ver-ban .cards.c4{
+  width: 44%;
+  margin-left: auto;
+    padding-top: 27px;
+    grid-template-columns: repeat(2, 1fr);
+}
+.full-banner.com-ban{
+    background-color: rgba(233, 241, 245, .55);
+  background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%,
+   rgba(18, 32, 25, 0.76) 48%, rgba(18, 32, 25, 0.25) 100%), 
+   url(../img/policy.jpg);
+   background-position: 100% 77%;
+}
+.full-banner.help-ban{
+    background-color: rgba(233, 241, 245, .55);
+  background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%,
+   rgba(18, 32, 25, 0.76) 48%, rgba(18, 32, 25, 0.25) 100%), 
+   url(../img/doc2.jfif);
+}
 .full-banner.team-ban{
-  background: rgba(233, 241, 245, .55);
+  background-color: rgba(233, 241, 245, .55);
   background-image: linear-gradient(90deg, rgba(18, 32, 25, 0.91) 0%,
    rgba(18, 32, 25, 0.76) 48%, rgba(18, 32, 25, 0.25) 100%), 
    url(../img/ourTeam.png);
-    background-repeat: no-repeat;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
 }
 .full-banner .sh h2,
 .full-banner .sh p,
 .full-banner .sh .kicker{
   color:#fff
+}
+@media (max-width: 760px) {
+    .sx.abt-banr {
+      display:grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 32px;
+    }
 }
