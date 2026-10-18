@@ -120,7 +120,9 @@ a {
   width: 0;
   background: linear-gradient(90deg, #14a5a1, #4fd1cb);
   z-index: 50;
+  display:none !important;
 }
+
 .hd {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -129,6 +131,11 @@ a {
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
+}
+.lgs-l .hd{
+ background: transparent;
+     backdrop-filter: unset;
+    border-bottom: 0; 
 }
 .hd .wrap {
   display: flex;
@@ -153,7 +160,7 @@ a {
 .nv {
   display: flex;
   gap: 2px;
-  margin-inline-start: auto;
+  margin: auto;
 }
 .nv a {
   padding: 8px 13px;
@@ -545,7 +552,10 @@ html[data-theme="dark"] .sec.alt {
   content: "Most requested";
   position: absolute;
   top: -12px;
-  inset-inline-end: 20px;
+  left:0;
+  right:0;
+  width:fit-content;
+  margin: auto;
   background: var(--btn);
   color: var(--btnT);
   font-size: 0.78rem;
@@ -771,11 +781,11 @@ tbody tr:hover td {
 }
 .pill.wn {
   background: var(--wnb);
-  color: var(--wn);
+  color: var(--ok);
 }
 .pill.in {
   background: var(--inb);
-  color: var(--in);
+  color: var(--ok);
 }
 .tb {
   display: flex;
@@ -1905,7 +1915,7 @@ html[data-theme="dark"] {
   color: var(--acc);
 }
 .ibt.dng:hover {
-  background: #fbe3e0;
+  /* background: #fbe3e0; */
   color: #b3261e;
 }
 html[data-theme="dark"] .ibt.dng:hover {
@@ -1913,8 +1923,9 @@ html[data-theme="dark"] .ibt.dng:hover {
   color: #ff9c90;
 }
 td.acts {
-  text-align: end;
-  white-space: nowrap;
+    text-align: left;
+    white-space: nowrap;
+    padding-left: 9px;
 }
 td.acts .ibt + .ibt {
   margin-inline-start: 2px;
@@ -3419,7 +3430,68 @@ html[data-theme="dark"] .bar i {
   background-repeat: no-repeat;
   color: #fff;
 }
-
+.cta-section.home-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/homeCta.jpg");
+}
+.cta-section.about-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/aboutCta.jpeg");
+}
+.cta-section.service-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/serviceCta.jpg");
+}
+.cta-section.faq-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/faqCta.png");
+}
+.cta-section.contact-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/contactsCta.jpg");
+    background-position:top right;
+}
+.cta-section.price-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/priceCta.jpg");
+    background-position:top right;
+}
 .cta-content {
   position: relative;
   z-index: 1;
@@ -3429,7 +3501,7 @@ html[data-theme="dark"] .bar i {
 .cta-content .kicker {
   display: inline-block;
   margin-bottom: 14px;
-  color: #d4e6d9;
+  /* color: #d4e6d9; */
   font-weight: 700;
 }
 
@@ -3668,6 +3740,17 @@ html[data-theme="dark"] .bar i {
   }
   .bg-img-section .h-banr {
     display: grid;
+    padding:12px
+  }
+  .bg-img-section .h-banr.stats-banner > div{
+    max-width: 14ch;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+@media(max-width: 1024px){
+    .bg-img-section .h-banr {
+    padding:10px
   }
 }
 
@@ -3954,4 +4037,234 @@ html[data-theme="dark"] .bar i {
   height: auto;
   background-size: cover;
 }
+}
+
+/* VaultRecords brand logo and tagline */
+.hd .brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.hd .brand-lockup > img {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.hd .brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+
+.hd .brand-name {
+  font-size: 21px;
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.55px;
+  color: var(--text, inherit);
+}
+
+.hd .brand-tagline {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.65px;
+  color: var(--muted, #788394);
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+/* Subtle brand interaction */
+.hd .brand-lockup:hover > img {
+  transform: scale(1.06);
+}
+
+.hd .brand-lockup:hover .brand-tagline {
+  color: var(--accent, #4776a8);
+}
+
+/* Responsive header */
+@media (max-width: 480px) {
+  .hd .brand-lockup {
+    gap: 7px;
+  }
+
+  .hd .brand-lockup > img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hd .brand-name {
+    font-size: 18px;
+  }
+
+  .hd .brand-tagline {
+    font-size: 8px;
+    letter-spacing: 0.3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hd .brand-lockup > img,
+  .hd .brand-tagline {
+    transition: none;
+  }
+}
+@media (min-width:1032px) and (max-width:1376px){
+  .tcar-card blockquote{
+    font-size: 13px !important;
+  }
+}
+@media (min-width:768px) and (max-width:1024px){
+  .tcar-card blockquote{
+    font-size: 14px !important;
+  }
+}
+
+/* Footer brand and tagline */
+.ft-brand .brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ft-brand .brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.ft-brand .brand-name {
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.ft-brand .brand-tagline {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.55px;
+  line-height: 1.5;
+  color: var(--muted, #9ca8b8);
+}
+
+/* Footer social icons */
+.ft-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.ft-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border, rgba(128, 145, 165, 0.3));
+  border-radius: 9px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ft-social svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.ft-social a:hover {
+  color: var(--accent, #6e9bd0);
+  border-color: var(--accent, #6e9bd0);
+  transform: translateY(-2px);
+}
+
+.ft-social a:focus-visible {
+  outline: 2px solid var(--accent, #6e9bd0);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .ft-social {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .ft-social a {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-social a {
+    transition: none;
+  }
+}
+
+/* Filter bars: search takes the full row, the dropdowns share the next row (they were squeezed to a few pixels) */
+@media(max-width:640px){
+  .tb input{flex:1 1 100%;min-width:0}
+  .tb select{flex:1 1 calc(50% - 5px);width:auto;min-width:0}
+}
+/* Four KPI cards (dashboard) sit in a clean 2x2 grid instead of 3 + 1 orphan; single column on phones */
+#kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:480px){#kpis{grid-template-columns:minmax(0,1fr)}}
+/* Tables scroll inside their card on small screens: tighter cells so more of the row is visible */
+@media(max-width:900px){.tw th,.tw td{padding-inline:12px}}
+/* ===== Sign-out confirmation modal ===== */
+.so-dlg{width:min(400px,calc(100vw - 32px));text-align:center}
+.so-dlg[open]{animation:soPop .22s cubic-bezier(.2,.8,.2,1)}
+.so-dlg::backdrop{background:rgba(7,20,38,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.so-b{padding:30px 26px 24px}
+.so-ic{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 18px;border-radius:50%;background:var(--soft);color:var(--acc);box-shadow:0 0 0 7px color-mix(in srgb,var(--soft) 55%,transparent)}
+.so-ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+[dir=rtl] .so-ic svg{transform:scaleX(-1)}
+.so-b h3{margin:0 0 8px;font-size:1.2rem}
+.so-b p{margin:0;color:var(--mute);font-size:.94rem;line-height:1.6}
+.so-act{display:flex;gap:10px;margin-top:24px}.so-act .btn{flex:1;justify-content:center}
+@keyframes soPop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.so-dlg[open]{animation:none}}
+.dash-w.wrap{
+  max-width:100%;
+}
+select {
+  /* 1. Remove the default browser arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* 2. Add your custom arrow as a background image */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  
+  /* 3. Position the icon and control the spacing on the right */
+  background-position: right 16px center; /* 16px from the right edge */
+  
+  /* 4. Ensure text doesn't overlap your new icon */
+  padding-right: 40px; 
+  
+  /* Optional: Basic styling to match your image */
+  padding-left: 16px;
+  height: 44px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: white;
 }

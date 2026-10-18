@@ -1,7 +1,7 @@
 /* VaultRecords – client portal pages. Depends on main.js (data layer). Page chosen via <body data-page>. */
 const DEPTS = ['Finance', 'HR', 'Legal', 'Operations', 'IT', 'Marketing'];
-const BOX_STATUS = ['In storage', 'Checked out', 'Pending destruction'];
-const PILL = { 'In storage': 'ok', Completed: 'ok', Paid: 'ok', 'Checked out': 'in', 'Retrieval requested': 'in', Pending: 'in', 'In progress': 'wn', 'Pending destruction': 'wn', Due: 'wn', Overdue: 'er', Cancelled: 'er' };
+const BOX_STATUS = ['In storage', 'Checked out', 'Pending'];
+const PILL = { 'In storage': 'ok', Completed: 'ok', Paid: 'ok', 'Checked out': 'in', 'Retrieval': 'in', Pending: 'in', 'In progress': 'wn', 'Pending destruction': 'wn', Due: 'wn', Overdue: 'er', Cancelled: 'er' };
 const ICONS = {
   view: '<path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/>',
   edit: '<path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13.500 6.500 4 4"/>',
@@ -103,7 +103,7 @@ function pInv() {
       field('fd', 'Contents', `<input id="fd" name="desc" required maxlength="80" value="${b ? esc(b.desc) : ''}" placeholder="e.g. Accounts payable 2024">`) +
       field('fp', 'Department', `<select id="fp" name="dept">${DEPTS.map(x => `<option ${b && b.dept === x ? 'selected' : ''}>${x}</option>`).join('')}</select>`) +
       (b ? field('fs', 'Status', `<select id="fs" name="status">${[...new Set([...BOX_STATUS, b.status])].map(x => `<option ${b.status === x ? 'selected' : ''}>${x}</option>`).join('')}</select>`)
-         : field('fr', 'Keep for', `<select id="fr" name="ret"><option value="3">3 years</option><option value="5">5 years</option><option value="7" selected>7 years</option><option value="10">10 years</option><option>Permanent</option></select>`)),
+        : field('fr', 'Keep for', `<select id="fr" name="ret"><option value="3">3 years</option><option value="5">5 years</option><option value="7" selected>7 years</option><option value="10">10 years</option><option>Permanent</option></select>`)),
       f => {
         const d2 = loadData();
         if (b) {
@@ -163,18 +163,18 @@ function pRet() {
     key: 'retrievals', n: 6, boxFilter: b => b.status === 'In storage',
     cols: r => `<td>${esc(r.type)}</td><td>${fmtDate(r.needed)}</td>`,
     create: (d, box, f) => ({ id: 'RT-' + nextNum(d.retrievals, 20313), box, type: $('#rt').value, priority: $('#rp').value, needed: $('#rd').value, notes: $('#rn').value.trim(), status: 'Pending', created: today() }),
-    onCreate: (d, r) => { d.boxes.find(b => b.id === r.box).status = 'Retrieval requested'; addActivity(d, 'retrieval', `Retrieval request created for ${r.box}`); },
+    onCreate: (d, r) => { d.boxes.find(b => b.id === r.box).status = 'Retrieval'; addActivity(d, 'retrieval', `Retrieval request created for ${r.box}`); },
     onChange: (d, r, st) => {
       const b = d.boxes.find(x => x.id === r.box);
       if (st === 'Completed') { if (b) b.status = 'Checked out'; addActivity(d, 'retrieval', `Retrieval completed for ${r.box}`); }
-      if (st === 'Cancelled') { if (b && b.status === 'Retrieval requested') b.status = 'In storage'; addActivity(d, 'retrieval', `Retrieval request cancelled for ${r.box}`); }
+      if (st === 'Cancelled') { if (b && b.status === 'Retrieval') b.status = 'In storage'; addActivity(d, 'retrieval', `Retrieval request cancelled for ${r.box}`); }
       if (st === 'In progress') addActivity(d, 'retrieval', `Retrieval started for ${r.box}`);
     }
   });
 }
 function pScan() {
   requestPage({
-    key: 'scans', n: 6, boxFilter: b => b.status !== 'Pending destruction',
+    key: 'scans', n: 6, boxFilter: b => b.status !== 'Pending',
     cols: r => `<td>${r.format}</td><td>${Number(r.pages).toLocaleString()}</td>`,
     create: (d, box) => ({ id: 'SC-' + nextNum(d.scans, 30089), box, format: $('#sfm').value, pages: +$('#spg').value || 0, turnaround: $('#stu').value, status: 'Pending', created: today() }),
     onCreate: (d, r) => addActivity(d, 'scanning', `Scanning request created for ${r.box}`),
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const p = document.body.dataset.page;
   if (!getSession()) return;
   fillChrome();
-  ({ dashboard: pDash, inventory: pInv, retrieval: pRet, scanning: pScan, billing: pBill, documents: pDocs, settings: pSet }[p] || (() => {}))();
+  ({ dashboard: pDash, inventory: pInv, retrieval: pRet, scanning: pScan, billing: pBill, documents: pDocs, settings: pSet }[p] || (() => { }))();
 });
 
 /* ---------- notifications: bell in the portal header, fed by the shared activity log ---------- */
@@ -312,14 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.innerHTML = '<div class="nt-h"><span>Notifications</span><button type="button" class="nt-m">Mark all as read</button></div><ul class="nt-l"></ul><a class="nt-f" href="dashboard.html">View dashboard</a>';
     document.body.appendChild(panel);
     btn.onclick = () => { if (panel.hidden) { render(); place(); panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); } else close(); };
-    $('.nt-m', panel).onclick = () => { try { localStorage.setItem(SEEN, new Date().toISOString()); } catch (e) {} render(); };
+    $('.nt-m', panel).onclick = () => { try { localStorage.setItem(SEEN, new Date().toISOString()); } catch (e) { } render(); };
     document.addEventListener('click', e => { if (!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target)) close(); });
     document.addEventListener('keydown', e => e.key === 'Escape' && close());
     addEventListener('resize', () => { if (!panel.hidden) place(); });
     addEventListener('storage', render);
     // refresh the badge whenever the shared data is saved (requests, payments, uploads...)
     const _save = saveData;
-    saveData = function (d) { _save(d); try { render(); } catch (e) {} };
+    saveData = function (d) { _save(d); try { render(); } catch (e) { } };
     render();
   }
   document.addEventListener('DOMContentLoaded', init);

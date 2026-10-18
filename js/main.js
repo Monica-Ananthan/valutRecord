@@ -71,8 +71,8 @@ function seed() {
     },
     boxes: [
       b(
-        10482,
-        "Accounts payable 2023",
+        82,
+        "Accounts 23",
         "Finance",
         "A-04-12",
         "In storage",
@@ -80,17 +80,17 @@ function seed() {
         "2033-12-31",
       ),
       b(
-        10481,
-        "Employee records, terminated 2019–2021",
+        81,
+        "Employee records",
         "HR",
         "B-11-02",
-        "Retrieval requested",
+        "Retrieval",
         39,
         "2030-06-30",
       ),
       b(
-        10480,
-        "Client contracts 2020–2021",
+        80,
+        "Client 21",
         "Legal",
         "C-02-07",
         "In storage",
@@ -98,8 +98,8 @@ function seed() {
         "2031-01-01",
       ),
       b(
-        10479,
-        "Patient intake forms 2022",
+        79,
+        "Patient form",
         "Operations",
         "D-08-20",
         "Checked out",
@@ -107,8 +107,8 @@ function seed() {
         "2032-03-15",
       ),
       b(
-        10478,
-        "Tax returns 2016–2018",
+        78,
+        "Tax18",
         "Finance",
         "A-05-03",
         "Pending destruction",
@@ -116,8 +116,8 @@ function seed() {
         "2026-12-31",
       ),
       b(
-        10477,
-        "Board minutes 2010–2015",
+        77,
+        "Board",
         "Legal",
         "C-01-01",
         "In storage",
@@ -125,8 +125,8 @@ function seed() {
         "Permanent",
       ),
       b(
-        10476,
-        "Vendor invoices 2020",
+        76,
+        "Vendor20",
         "Finance",
         "A-06-09",
         "In storage",
@@ -134,8 +134,8 @@ function seed() {
         "2027-12-31",
       ),
       b(
-        10475,
-        "Marketing assets archive",
+        75,
+        "Marketing",
         "Marketing",
         "E-03-04",
         "In storage",
@@ -143,8 +143,8 @@ function seed() {
         "2028-06-30",
       ),
       b(
-        10474,
-        "Facilities maintenance logs",
+        74,
+        "Facilities",
         "Operations",
         "D-02-15",
         "In storage",
@@ -152,8 +152,8 @@ function seed() {
         "2029-09-30",
       ),
       b(
-        10473,
-        "IT procurement records",
+        73,
+        "IT records",
         "IT",
         "B-07-11",
         "In storage",
@@ -164,8 +164,8 @@ function seed() {
     retrievals: [
       {
         id: "RT-20312",
-        box: "BX-10481",
-        type: "Deliver – rush same day",
+        box: "BX-81",
+        type: "Rush Delivery",
         priority: "Rush",
         needed: dt(-1),
         notes: "",
@@ -174,8 +174,8 @@ function seed() {
       },
       {
         id: "RT-20311",
-        box: "BX-10479",
-        type: "Deliver – next business day",
+        box: "BX-79",
+        type: "Deliver",
         priority: "Standard",
         needed: dt(12),
         notes: "",
@@ -187,18 +187,18 @@ function seed() {
       {
         id: "SC-30088",
         box: "BX-10480",
-        format: "Searchable PDF",
+        format: "Search PDF",
         pages: 2400,
-        turnaround: "Standard (5–7 days)",
+        turnaround: "7 days",
         status: "In progress",
         created: dt(4),
       },
       {
         id: "SC-30087",
-        box: "BX-10476",
-        format: "Searchable PDF",
+        box: "BX-76",
+        format: "Search PDF",
         pages: 1180,
-        turnaround: "Standard (5–7 days)",
+        turnaround: "5 days",
         status: "Completed",
         created: dt(30),
       },
@@ -236,23 +236,23 @@ function seed() {
     documents: [
       {
         id: "DOC-501",
-        name: "Vendor invoices 2020.pdf",
-        box: "BX-10476",
+        name: "Vendor.pdf",
+        box: "BX-76",
         type: "Scan",
         pages: 1180,
         added: dt(28),
       },
       {
         id: "DOC-500",
-        name: "Board minutes 2010–2015.pdf",
-        box: "BX-10477",
+        name: "Board.pdf",
+        box: "BX-77",
         type: "Scan",
         pages: 312,
         added: dt(90),
       },
       {
         id: "DOC-499",
-        name: "Storage agreement 2026.pdf",
+        name: "Storage.pdf",
         box: "",
         type: "Contract",
         pages: 14,
@@ -260,7 +260,7 @@ function seed() {
       },
       {
         id: "DOC-498",
-        name: "Certificate of destruction – March.pdf",
+        name: "March.pdf",
         box: "",
         type: "Certificate",
         pages: 2,
@@ -369,6 +369,36 @@ function logout() {
   location.href = "login.html";
 }
 
+/* ---------- sign-out confirmation modal (native <dialog>: focus trap, Esc to close, backdrop) ---------- */
+function confirmLogout() {
+  let d = document.getElementById('so-dlg');
+  if (!d) {
+    d = document.createElement('dialog'); d.id = 'so-dlg'; d.className = 'so-dlg';
+    d.setAttribute('aria-labelledby', 'so-t'); d.setAttribute('aria-describedby', 'so-d');
+    d.innerHTML = `<div class="so-b">
+      <span class="so-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 8l-4 4 4 4M6 12h10"/></svg></span>
+      <h3 id="so-t">Sign out?</h3>
+      <p id="so-d">You will need to sign in again to see your dashboard.</p>
+      <div class="so-act"><button type="button" class="btn ghost s" data-so-no>Stay signed in</button><button type="button" class="btn s" data-so-yes>Sign out</button></div>
+    </div>`;
+    document.body.appendChild(d);
+    d.querySelector('[data-so-no]').onclick = () => d.close();
+    d.querySelector('[data-so-yes]').onclick = () => { d.close(); logout(); };
+    d.addEventListener('click', e => { if (e.target === d) d.close(); }); // click on the dimmed backdrop
+  }
+  if (!d.open) d.showModal();
+  d.querySelector('[data-so-no]').focus(); // safest default: stay signed in
+}
+// Intercepts ANY "Sign out" button/link (data-logout, the mobile-menu link, or a button whose text is Sign out / Log out)
+// before older click handlers can log the user out, so no HTML changes are needed.
+document.addEventListener('click', e => {
+  if (e.target.closest('#so-dlg')) return;
+  const t = e.target.closest('a,button');
+  if (t && (t.matches('[data-logout], .nv-x') || /^(sign|log)\s?out$/i.test(t.textContent.trim()))) {
+    e.preventDefault(); e.stopImmediatePropagation(); confirmLogout();
+  }
+}, true);
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeData();
   const s = getSession(),
@@ -434,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if ($("#rm").checked) localStorage.setItem(RKEY, DEMO_EMAIL);
         else localStorage.removeItem(RKEY);
       } catch (err) {}
-      msg("Signed in. Redirecting to your dashboard…", true);
+      msg("", true);
       setTimeout(() => (location.href = "dashboard.html"), 350);
     };
   }
