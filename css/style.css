@@ -4225,7 +4225,6 @@ html[data-theme="dark"] .bar i {
   .tb select{flex:1 1 calc(50% - 5px);width:auto;min-width:0}
 }
 /* Four KPI cards (dashboard) sit in a clean 2x2 grid instead of 3 + 1 orphan; single column on phones */
-#kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:480px){#kpis{grid-template-columns:minmax(0,1fr)}}
 /* Tables scroll inside their card on small screens: tighter cells so more of the row is visible */
 @media(max-width:900px){.tw th,.tw td{padding-inline:12px}}
@@ -4244,6 +4243,7 @@ html[data-theme="dark"] .bar i {
 @media(prefers-reduced-motion:reduce){.so-dlg[open]{animation:none}}
 .dash-w.wrap{
   max-width:100%;
+  gap:8px;
 }
 select {
   /* 1. Remove the default browser arrow */
@@ -4252,19 +4252,205 @@ select {
   appearance: none;
 
   /* 2. Add your custom arrow as a background image */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
-  background-repeat: no-repeat;
-  
-  /* 3. Position the icon and control the spacing on the right */
-  background-position: right 16px center; /* 16px from the right edge */
-  
-  /* 4. Ensure text doesn't overlap your new icon */
-  padding-right: 40px; 
-  
-  /* Optional: Basic styling to match your image */
-  padding-left: 16px;
-  height: 44px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  background-color: white;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2365727A' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")!important;
+  background-repeat: no-repeat !important;
+    background-position: right 16px center !important;
+    padding-right: 40px;
+    padding-left: 16px;
+    height: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: white;
+    background-size: 12px !important;
+}
+
+/* Header profile dropdown */
+.profile-menu {
+  position: relative;
+}
+
+.profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.profile-trigger svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.profile-trigger .profile-chevron {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.2s ease;
+}
+
+.profile-trigger[aria-expanded="true"] .profile-chevron {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 100;
+  min-width: 150px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bnb2);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.profile-dropdown[hidden] {
+  display: none;
+}
+
+.profile-dropdown a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+  background: var(--tint, rgba(128, 145, 165, 0.12));
+}
+.profile-trigger img{
+  border-radius: 50%;
+}
+
+/* Sidebar sign-out button */
+.side .side-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.side .side-logout svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.side .side-logout:hover {
+  background: var(--tint, rgba(128, 145, 165, 0.12));
+  color: var(--accent, var(--ink));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-trigger .profile-chevron,
+  .side .side-logout {
+    transition: none;
+  }
+}
+
+/* Fixed dashboard sidebar */
+@media (min-width: 901px) {
+  .app {
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+  }
+  .app > .side {
+    position: fixed;
+    align-self: start;
+    height: calc(100vh - 32px);
+    height: calc(100dvh - 32px);
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-left: 20px;
+    width: 236px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 10%;
+    background: var(--btn);
+    padding-left: 20px;
+  }
+
+  /* Push sign out to the bottom */
+  .app > .side > .side-logout {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+  .mainc{
+    margin-left: 236px;
+    width: 100%;
+    padding: 25px;
+  }
+  .side a {
+    padding: 12px 12px;
+  }
+  .side .btn.ghost.s{
+    border:0;
+    position: absolute;
+    bottom: 20px;
+    color:var(--mute);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--acc);
+    color: var(--btnT);
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font: 600 0.95rem Inter, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    width: 88%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .side a.on {
+    color: var(--acc);
+  }
+}
+
+/* Keep normal sidebar flow on smaller screens */
+@media (max-width: 900px) {
+  .app > .side {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .app > .side > .side-logout {
+    margin-top: 12px;
+  }
 }

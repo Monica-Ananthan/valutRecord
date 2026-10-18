@@ -113,27 +113,39 @@
             align-items: center;
           "
         >
-          <span class="mu sm user-email"></span
-          ><button class="ib" id="tTheme" aria-label="Toggle dark mode">
+          <button class="ib" id="tTheme" aria-label="Toggle dark mode">
             Dark</button
           ><button class="ib" id="tDir" aria-label="Toggle text direction">
             RTL</button
-          ><button
-            class="btn ghost s"
-            data-logout
-            style="color: var(--ink); border-color: var(--line)"
           >
-            Sign out
+        </div>
+                <div class="profile-menu">
+          <button
+            class="ib profile-trigger"
+            id="profileToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="profileDropdown"
+          >
+            <img src="img/profile.jfif" alt="" width="27" height="27" />
+            <span class="mu sm co-name"></span>
+            <svg class="profile-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m7 10 5 5 5-5"></path>
+            </svg>
           </button>
+
+          <div class="profile-dropdown" id="profileDropdown" hidden>
+            <a href="settings.html">Settings</a>
+          </div>
         </div>
       </div>
     </header>
     <main>
       <div class="dash-w wrap">
         <div class="app">
-          <aside class="side" aria-label="Client portal">
-            <div class="ac"><b class="co-name"></b>Account VL-20418</div>
-            <a href="dashboard.html">Dashboard</a
+<aside class="side" aria-label="Client portal">
+            <!-- <div class="ac"><b class="co-name"></b></div> -->
+            <a href="dashboard.html" class="on" aria-current="page">Dashboard</a
             ><a href="inventory.html">Inventory</a
             ><a href="retrieval.html"
               >Retrieval requests<span
@@ -143,8 +155,14 @@
             ><a href="scanning.html"
               >Scanning requests<span class="bd" data-badge="scans"></span></a
             ><a href="billing.html">Billing</a
-            ><a href="documents.html">Documents</a
-            ><a href="settings.html" class="on" aria-current="page">Settings</a>
+            ><a href="documents.html">Documents</a>
+            <button
+              class="btn ghost s"
+              data-logout
+              style="color: var(--ink); border-color: var(--line)"
+            >
+              Sign out
+            </button>
           </aside>
           <div class="mainc">
             <div class="top">
