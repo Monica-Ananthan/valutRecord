@@ -175,14 +175,18 @@
                 <div class="fgrid">
                   <div>
                     <label for="bx">Box to scan</label
-                    ><select id="bx" required></select>
+                    ><select required>
+                      <option>Employee data</option>
+                    <option>IT records</option>
+                    <option>Marketing log </option>
+                    </select>
                   </div>
                   <div>
                     <label for="sfm">Output format</label
                     ><select id="sfm">
-                      <option>Searchable PDF</option>
-                      <option>PDF, no OCR</option>
-                      <option>TIFF archive</option>
+                      <option>Searchable PDF data</option>
+                      <option>PDF, no OCR data</option>
+                      <option>TIFF archives data</option>
                     </select>
                   </div>
                   <div>
@@ -198,8 +202,8 @@
                   <div>
                     <label for="stu">Turnaround</label
                     ><select id="stu">
-                      <option>Standard (5–7 days)</option>
-                      <option>Rush (2 days)</option>
+                      <option>Standard 7 days</option>
+                      <option>Rush 2 days</option>
                     </select>
                   </div>
                 </div>
@@ -213,15 +217,132 @@
               <table>
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Id</th>
                     <th>Box</th>
                     <th>Format</th>
                     <th>Pages</th>
                     <th>Status</th>
-                    <th></th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody id="rows"></tbody>
+                <tbody >
+                  <tr>
+                    <td><b>SC3</b></td>
+                    <td>BX2</td>
+                    <td>PDF, no OCR data</td>
+                    <td>1000</td>
+                    <td><span class="pill ok">In progress</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="SC3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="SC-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>SC9</b></td>
+                    <td>BX2</td>
+                    <td>Searchable PDF data</td>
+                    <td>500</td>
+                    <td><span class="pill ok">Pending</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="SC3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="SC-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>SC1</b></td>
+                    <td>BX5</td>
+                    <td>TIFF archives data</td>
+                    <td>200</td>
+                    <td><span class="pill ok">Completed</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="SC3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="SC-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>SC7</b></td>
+                    <td>BX9</td>
+                    <td>Searchable PDF data</td>
+                    <td>700</td>
+                    <td><span class="pill ok">In progress</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="SC3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="SC-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

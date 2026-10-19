@@ -23,8 +23,7 @@
     <script src="js/theme.js"></script>
     <script src="js/main.js" defer></script>
     <script src="js/dashboard.js" defer></script>
-        <script src="js/profile-menu.js" defer></script>
-
+    <script src="js/profile-menu.js" defer></script>
   </head>
   <body data-page="retrieval" data-protected>
     <div id="prog"></div>
@@ -89,16 +88,11 @@
     <header class="hd">
       <div class="dash-w wrap">
         <a class="lg brand-lockup" href="index.html">
-          <img
-            src="img/logo-mark.svg"
-            alt=""
-            width="34"
-            height="34"
-          />
-            <span class="brand-copy">
-              <span class="brand-name">VaultRecords</span>
-              <span class="brand-tagline">SECURED. ORGANIZED. ACCESSIBLE.</span>
-            </span>
+          <img src="img/logo-mark.svg" alt="" width="34" height="34" />
+          <span class="brand-copy">
+            <span class="brand-name">VaultRecords</span>
+            <span class="brand-tagline">SECURED. ORGANIZED. ACCESSIBLE.</span>
+          </span>
         </a>
         <div
           class="sp"
@@ -112,8 +106,8 @@
           <button class="ib" id="tTheme" aria-label="Toggle dark mode">
             Dark</button
           ><button class="ib" id="tDir" aria-label="Toggle text direction">
-            RTL</button
-          >
+            RTL
+          </button>
         </div>
         <div class="profile-menu">
           <button
@@ -139,11 +133,11 @@
     <main>
       <div class="dash-w wrap">
         <div class="app">
-<aside class="side" aria-label="Client portal">
+          <aside class="side" aria-label="Client portal">
             <!-- <div class="ac"><b class="co-name"></b></div> -->
             <a href="dashboard.html">Dashboard</a
             ><a href="inventory.html">Inventory</a
-            ><a href="retrieval.html"  class="on" aria-current="page"
+            ><a href="retrieval.html" class="on" aria-current="page"
               >Retrieval requests<span
                 class="bd"
                 data-badge="retrievals"
@@ -176,8 +170,13 @@
               <form id="rf">
                 <div class="fgrid">
                   <div>
-                    <label for="bx">Box</label
-                    ><select id="bx" required></select>
+                    <label for="bx">Box</label>
+                    <select required>
+                      <option>Client 21</option>
+                      <option>Vendor</option>
+                      <option>IT records</option>
+                      <option>Logs</option>
+                    </select>
                   </div>
                   <div>
                     <label for="rt">Delivery option</label
@@ -216,15 +215,132 @@
               <table>
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Id</th>
                     <th>Box</th>
                     <th>Type</th>
                     <th>Needed by</th>
                     <th>Status</th>
-                    <th></th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody id="rows"></tbody>
+                <tbody >
+                  <tr>
+                    <td><b>RT3</b></td>
+                    <td>BX2</td>
+                    <td>Business day</td>
+                    <td>Oct20,2026</td>
+                    <td><span class="pill ok">In progress</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="RT3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="RT-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>RT9</b></td>
+                    <td>BX2</td>
+                    <td>View room</td>
+                    <td>Aug6,2026</td>
+                    <td><span class="pill ok">Pending</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="RT3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="RT-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>RT1</b></td>
+                    <td>BX5</td>
+                    <td>Same day</td>
+                    <td>Oct19,2026</td>
+                    <td><span class="pill ok">Completed</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="RT3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="RT-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>RT7</b></td>
+                    <td>BX9</td>
+                    <td>Business day</td>
+                    <td>Sep20,2026</td>
+                    <td><span class="pill ok">In progress</span></td>
+                    <td class="acts">
+                      <button
+                        class="ibt"
+                        data-adv="RT3"
+                        data-to="Completed"
+                        aria-label="Complete (demo)"
+                        title="Complete (demo)"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m5 12.500 4.500 4.500L19 7.500"></path>
+                        </svg></button
+                      ><button
+                        class="ibt dng"
+                        data-can="RT-20313"
+                        aria-label="Cancel request"
+                        title="Cancel request"
+                      >
+                        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6 6 18"></path>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

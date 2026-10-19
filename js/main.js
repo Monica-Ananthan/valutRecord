@@ -51,7 +51,7 @@ const dt = (d) => iso(d).slice(0, 10);
 
 function seed() {
   const b = (n, desc, dept, location, status, age, destroy) => ({
-    id: "BX-" + n,
+    id: "BX" + n,
     desc,
     dept,
     location,
@@ -163,8 +163,8 @@ function seed() {
     ],
     retrievals: [
       {
-        id: "RT-20312",
-        box: "BX-81",
+        id: "RT12",
+        box: "BX81",
         type: "Rush Delivery",
         priority: "Rush",
         needed: dt(-1),
@@ -173,8 +173,8 @@ function seed() {
         created: dt(1),
       },
       {
-        id: "RT-20311",
-        box: "BX-79",
+        id: "RT11",
+        box: "BX79",
         type: "Deliver",
         priority: "Standard",
         needed: dt(12),
@@ -186,7 +186,7 @@ function seed() {
     scans: [
       {
         id: "SC-30088",
-        box: "BX-10480",
+        box: "BX80",
         format: "Search PDF",
         pages: 2400,
         turnaround: "7 days",
@@ -195,7 +195,7 @@ function seed() {
       },
       {
         id: "SC-30087",
-        box: "BX-76",
+        box: "BX76",
         format: "Search PDF",
         pages: 1180,
         turnaround: "5 days",
@@ -207,12 +207,12 @@ function seed() {
       {
         id: "INV-4105",
         date: dt(8),
-        desc: "September storage, retrieval and scanning",
+        desc: "September storage",
         amount: 486.5,
         status: "Due",
       },
       {
-        id: "INV-4091",
+        id: "INV91",
         date: dt(45),
         desc: "Rush retrieval and certified destruction",
         amount: 128.4,
@@ -237,7 +237,7 @@ function seed() {
       {
         id: "DOC-501",
         name: "Vendor.pdf",
-        box: "BX-76",
+        box: "BX76",
         type: "Scan",
         pages: 1180,
         added: dt(28),
@@ -245,7 +245,7 @@ function seed() {
       {
         id: "DOC-500",
         name: "Board.pdf",
-        box: "BX-77",
+        box: "BX77",
         type: "Scan",
         pages: 312,
         added: dt(90),
@@ -271,13 +271,13 @@ function seed() {
       {
         id: "a5",
         type: "retrieval",
-        message: "Retrieval request created for BX-10481",
+        message: "Retrieval request created for BX81",
         timestamp: iso(1),
       },
       {
         id: "a4",
         type: "scanning",
-        message: "Scanning request created for BX-10480",
+        message: "Scanning request created for BX80",
         timestamp: iso(4),
       },
       {
@@ -289,7 +289,7 @@ function seed() {
       {
         id: "a2",
         type: "inventory",
-        message: "Box BX-10482 added to inventory",
+        message: "Box BX82 added to inventory",
         timestamp: iso(26),
       },
       {

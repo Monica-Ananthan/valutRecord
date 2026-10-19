@@ -4010,6 +4010,15 @@ html[data-theme="dark"] .bar i {
   justify-self: center;     
   width: 100%;        
 }
+.profile-trigger span.mu.sm.co-name,
+.profile-trigger .profile-chevron{
+  display: none;
+}
+}
+@media (min-width:1032px) and (max-width:1376px){
+  #rf .fgrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 768px) {
 .full-banner.ver-ban {
