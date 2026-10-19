@@ -784,7 +784,7 @@ tbody tr:hover td {
   color: var(--ok);
 }
 .pill.in {
-  background: var(--inb);
+  background: var(--okb);
   color: var(--ok);
 }
 .tb {
@@ -1918,10 +1918,10 @@ html[data-theme="dark"] {
   /* background: #fbe3e0; */
   color: #b3261e;
 }
-html[data-theme="dark"] .ibt.dng:hover {
+/* html[data-theme="dark"] .ibt.dng:hover {
   background: #3f1b19;
   color: #ff9c90;
-}
+} */
 td.acts {
     text-align: left;
     white-space: nowrap;
@@ -4257,10 +4257,6 @@ select {
     background-position: right 16px center !important;
     padding-right: 40px;
     padding-left: 16px;
-    height: 10px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background-color: white;
     background-size: 12px !important;
 }
 
@@ -4397,7 +4393,7 @@ select {
     left: 0;
     height: 100%;
     padding-top: 10%;
-    background: var(--btn);
+    background: #0b2545;
     padding-left: 20px;
   }
 
@@ -4440,6 +4436,13 @@ select {
   .side a.on {
     color: var(--acc);
   }
+  [dir="rtl"] .app > .side {
+  right: 0;
+}
+[dir="rtl"] .mainc {
+    margin-right: 236px;
+    margin-left: 0;
+}
 }
 
 /* Keep normal sidebar flow on smaller screens */
@@ -4454,3 +4457,4 @@ select {
     margin-top: 12px;
   }
 }
+
