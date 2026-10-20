@@ -149,3 +149,13 @@
     });
   });
 })();
+
+/* Home submenu: the arrow toggles it on touch and keyboard (hover also works on desktop) */
+document.addEventListener('DOMContentLoaded', () => {
+  const dd = document.querySelector('.nv-dd'); if (!dd) return;
+  const b = dd.querySelector('.nv-chev');
+  const set = o => { dd.classList.toggle('open', o); b.setAttribute('aria-expanded', o); };
+  b.onclick = e => { e.stopPropagation(); set(!dd.classList.contains('open')); };
+  document.addEventListener('click', e => { if (!dd.contains(e.target)) set(false); });
+  document.addEventListener('keydown', e => e.key === 'Escape' && set(false));
+});

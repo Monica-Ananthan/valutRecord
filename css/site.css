@@ -169,6 +169,7 @@ body[data-page="register"] .to-top {
   gap: 12px;
   z-index: 1;
 }
+
 .bnr-chip {
   gap: 12px;
   align-items: center;
@@ -180,6 +181,34 @@ body[data-page="register"] .to-top {
   font-size: 0.9rem;
   font-weight: 500;
   animation: float 6s ease-in-out infinite;
+}
+.form-bub .two{
+  position: relative;
+}
+.form-bub .bnr-chip{
+ background: transparent;
+    right: -104%;
+    bottom: -50px;
+    border: 0;
+    box-shadow: unset;
+    position: absolute;
+    max-width: 100%;
+}
+.form-bub .bnr-chip-img-wrap{
+  overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: unset;
+}
+
+.form-bub .float-img-sec{
+    background-image: url(../img/bubble3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    border-radius: 12px;
+    height: 391px;
+    max-width: 100%;
 }
 .bnr-chip:nth-child(2) {
   animation-delay: -3s;

@@ -221,12 +221,17 @@
           </span>
         </a>
         <nav class="nv" aria-label="Main">
-            <div class="nv-dropdown">
+            <div class="nv-dd">
               <a href="index.html" class="nv-home">Home</a>
-              <div class="nv-submenu">
-                <a href="index.html">Home 1</a>
-                <a href="home2.html">Home 2</a>
-              </div>
+                <button type="button" class="nv-chev" aria-label="Show home page options" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div class="nv-sub">
+            <a href="index.html">Home 1</a>
+            <a href="home2.html">Home 2</a>
+          </div>
             </div>
           <a href="about.html">About</a
           ><a href="services.html">Services</a
@@ -261,7 +266,7 @@
           </p>
         </div>
       </section>
-      <section class="sec">
+      <!-- <section class="sec">
         <div class="wrap">
           <div class="cards c4">
             <div class="card h">
@@ -302,7 +307,106 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
+      <section class="vault-contact-hub">
+  <div class="hub-container">
+    
+    <!-- Hero / Intro Banner Section -->
+    <div class="hub-banner">
+      <div class="banner-content">
+        <span class="hub-tag">VaultRecords Support Center</span>
+        <h2>Connect With Our Archive Experts</h2>
+        <p>Whether you need instant digital assistance, physical record retrieval, or facility directions, our dedicated team is ready to secure your information.</p>
+      </div>
+      <div class="banner-status">
+        <span class="status-dot"></span>
+        <span>Operational • Closes at 18:00</span>
+      </div>
+    </div>
+
+    <!-- Interactive Grid Layout -->
+    <div class="hub-grid">
+      
+      <!-- Call Card -->
+      <a href="tel:18005550142" class="hub-card primary-action">
+        <div class="card-top">
+          <div class="icon-box">
+            <svg class="ic" aria-hidden="true"><use href="#i-headset" /></svg>
+          </div>
+          <span class="action-tag">Immediate</span>
+        </div>
+        <div class="card-body">
+          <h3>Call us</h3>
+          <p class="highlight-text">1-800-555-0142</p>
+          <span class="card-desc">Direct line to our customer support specialists.</span>
+        </div>
+        <div class="card-footer">
+          <span>Call Now</span>
+          <svg class="arrow-ic" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Email Card -->
+      <a href="mailto:records@vault.com" class="hub-card">
+        <div class="card-top">
+          <div class="icon-box">
+            <svg class="ic" aria-hidden="true"><use href="#i-send" /></svg>
+          </div>
+          <span class="action-tag">24/7 Queue</span>
+        </div>
+        <div class="card-body">
+          <h3>Email us</h3>
+          <p class="highlight-text email-text">records@vault.com</p>
+          <span class="card-desc">Send documentation requests or inquiries anytime.</span>
+        </div>
+        <div class="card-footer">
+          <span>Send Message</span>
+          <svg class="arrow-ic" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Visit Card -->
+      <a href="#visit-us" class="hub-card">
+        <div class="card-top">
+          <div class="icon-box">
+            <svg class="ic" aria-hidden="true"><use href="#i-building" /></svg>
+          </div>
+          <span class="action-tag">On-Site</span>
+        </div>
+        <div class="card-body">
+          <h3>Visit us</h3>
+          <p class="highlight-text">12 New Way, Suite 400</p>
+          <span class="card-desc">Main facility and secure archive vault location.</span>
+        </div>
+        <div class="card-footer">
+          <span>Get Directions</span>
+          <svg class="arrow-ic" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Hours Card -->
+      <div class="hub-card static-card">
+        <div class="card-top">
+          <div class="icon-box">
+            <svg class="ic" aria-hidden="true"><use href="#i-clock" /></svg>
+          </div>
+          <span class="badge-open">Open Schedule</span>
+        </div>
+        <div class="card-body">
+          <h3>Opening hours</h3>
+          <p class="highlight-text">8:00 AM to 18:00 PM</p>
+          <span class="card-desc">Weekend support available via email queue only.</span>
+        </div>
+        <div class="card-footer static-footer">
+          <span>Standard Time (EST)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
       <section class="sec full-banner form-bub">
         <div class="wrap">
           <div class="">
@@ -388,11 +492,19 @@
                   >.
                 </p>
               </div>
+                <div class="bnr-chipmmms">
+                <div class="bnr-chip">
+                  <div class="bnr-chip-img-wrap">
+                    <div class="float-img-sec"></div>
+                  </div>
+                </div>
             </div>
+            </div>
+  
           </div>
         </div>
       </section>
-      <section class="sec full-banner loc-ban">
+      <section id="visit-us" class="sec full-banner loc-ban">
         <div class="wrap">
           <div class="sh">
             <span class="kicker">Find us</span>
@@ -429,7 +541,7 @@
                 </svg>
               </div>
               <h3>New accounts</h3>
-              <p>Quotes, onboarding and migrations.</p>
+              <p>Quotes, onboarding and migrations to your account.</p>
             </div>
             <div class="card h">
               <div class="ch">
