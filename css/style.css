@@ -4717,3 +4717,13 @@ select {
 .home-two-chip .bnr-chip{
   min-width: 400px;
 }
+.side.open a.nv-x.btn.ghost.s{
+  display: none;
+}
+.side.open .ib{
+  width: 100%;
+}
+.side.open .nv-tools{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
