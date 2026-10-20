@@ -21,6 +21,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/home2.css" />
     <script src="js/theme.js"></script>
     <script src="js/main.js" defer></script>
     <script src="js/site.js" defer></script>
@@ -230,8 +231,16 @@
             </span>
         </a>
         <nav class="nv" aria-label="Main">
-          <a href="index.html" class="on">Home</a><a href="about.html">About</a
-          ><a href="services.html">Services</a
+          <!-- <a href="index.html" class="on">Home</a> -->
+             <div class="nv-dropdown">
+              <a href="index.html" class="on nv-home">Home</a>
+              <div class="nv-submenu">
+                <a href="index.html">Home 1</a>
+                <a href="home2.html">Home 2</a>
+              </div>
+            </div>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a
           ><a href="security.html">Security</a
           ><a href="industries.html">Industries</a
           ><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a
@@ -254,7 +263,7 @@
           src="img/banner-home.jpg"
           alt="Aisles of barcoded archive boxes in a records facility"
         />
-        <div class="wrap bnr-c">
+        <div class="wrap float-bnr bnr-c">
           <span class="tag">Records management &amp; storage</span>
           <h1>
             Secure records.
@@ -272,52 +281,91 @@
           </div>
         </div>
         <div class="bnr-chips">
-          <div class="bnr-chip">
+          <!-- <div class="bnr-chip">
             <span class="ch"
               ><svg class="ic" aria-hidden="true">
                 <use href="#i-tag" /></svg></span
             >Every box barcode-tracked
-          </div>
+          </div> -->
           <div class="bnr-chip">
+            <div class="bnr-chip-img-wrap">
+                <div class="home-float float-barcode"></div>
+              </div>
+              <div class="home-float-tag">
+                <svg class="ic" aria-hidden="true">
+                <use href="#i-tag" /></svg>Every box barcode-tracked
+              </div>
+          </div>
+          <!-- <div class="bnr-chip">
             <span class="ch"
               ><svg class="ic" aria-hidden="true">
                 <use href="#i-calendar" /></svg></span
             >Next-day delivery included
-          </div>
+          </div> -->
         </div>
       </section>
-      <section class="sec">
+<section class="sec">
         <div class="wrap">
-          <div class="cards c4">
-            <div class="card h">
-              <div class="ch">
-                <svg class="ic" aria-hidden="true"><use href="#i-lock" /></svg>
-              </div>
-              <h3>Badge and PIN access</h3>
-              <p>Every entry is logged and reviewed.</p>
-            </div>
-            <div class="card h">
-              <div class="ch">
-                <svg class="ic" aria-hidden="true"><use href="#i-temp" /></svg>
-              </div>
-              <h3>Climate controlled</h3>
-              <p>Stable temperature and humidity.</p>
-            </div>
-            <div class="card h">
-              <div class="ch">
-                <svg class="ic" aria-hidden="true"><use href="#i-fire" /></svg>
-              </div>
-              <h3>Fire suppression</h3>
-              <p>Water-free systems protect paper.</p>
-            </div>
-            <div class="card h">
-              <div class="ch">
-                <svg class="ic" aria-hidden="true"><use href="#i-eye" /></svg>
-              </div>
-              <h3>24/7 monitoring</h3>
-              <p>Recorded coverage of every area.</p>
-            </div>
+          <div class="sh">
+            <span class="kicker">Why VaultRecords</span>
+            <h2>Security built into every aisle</h2>
+            <p class="mu">Six layers of protection on every box we hold.</p>
           </div>
+          <ul class="bento" data-rv>
+            <li class="bt b1 full-banner io-card">
+              <span class="ch"
+                ><svg class="ic" aria-hidden="true"><use href="#i-lock" /></svg
+              ></span>
+              <h3>Badge and PIN access</h3>
+              <p>
+                Every entry is logged and reviewed monthly, so you always know
+                who has been in.
+              </p>
+            </li>
+            <li class="bt full-banner ith-card">
+              <span class="ch"
+                ><svg class="ic" aria-hidden="true"><use href="#i-temp" /></svg
+              ></span>
+              <h3>Climate controlled</h3>
+              <p>Stable temperature and humidity for paper and media.</p>
+            </li>
+            <li class="bt full-banner itw-card">
+              <span class="ch"
+                ><svg class="ic" aria-hidden="true"><use href="#i-fire" /></svg
+              ></span>
+              <h3>Fire suppression</h3>
+              <p>Water-free systems protect paper from damage.</p>
+            </li>
+            <li class="bt b4 full-banner ifo-card">
+              <span class="ch"
+                ><svg class="ic" aria-hidden="true"><use href="#i-eye" /></svg
+              ></span>
+              <h3>24/7 monitoring</h3>
+              <p>
+                Recorded camera coverage of every storage area and loading bay.
+              </p>
+            </li>
+            <li class="bt b5 full-banner ifv-card">
+              <span class="ch"
+                ><svg class="ic" aria-hidden="true">
+                  <use href="#i-shield" /></svg
+              ></span>
+              <h3>Certified destruction</h3>
+              <p>
+                Shredded only after your approval, with a certificate for every
+                box.
+              </p>
+            </li>
+            <li class="bt b5 full-banner isi-card">
+              <span class="ch"
+                ><svg class="ic" aria-hidden="true"><use href="#i-key" /></svg
+              ></span>
+              <h3>Restricted key control</h3>
+              <p>
+                Keys and cards are issued, tracked and revoked from one place.
+              </p>
+            </li>
+          </ul>
         </div>
       </section>
       <section class="sec tint">
@@ -418,19 +466,27 @@
     </div>
   </div>
 </section>
-      <section class="sec">
+      <section class="sec tint">
         <div class="wrap">
-          <div class="fr">
-            <div class="fi">
+          <div class="fr ov">
+            <div class="ov-i">
               <img
                 src="img/figure-physical-digital.jpg"
                 alt="Physical records on shelving beside a digital document workspace"
-                style="aspect-ratio: 16/9"
               />
+              <div class="ov-card">
+                <span class="ch"
+                  ><svg class="ic" aria-hidden="true">
+                    <use href="#i-chart" /></svg></span
+                ><span
+                  ><b>Live inventory</b
+                  ><small>Every box and request in one dashboard</small></span
+                >
+              </div>
             </div>
             <div>
-              <span class="kicker">Your client portal</span>
-              <h2>Your records, always up to date</h2>
+              <span class="kicker">Client portal</span>
+              <h2>Physical records, digital control</h2>
               <p class="mu">
                 See every box, track every request and pay invoices in one
                 place, from any device.
@@ -440,14 +496,14 @@
                 <li>Follow each request from pending to delivered</li>
                 <li>Pay invoices and download your documents</li>
               </ul>
+              <p style="margin-top: 24px">
+                <a class="btn" href="register.html"
+                  >Create your account<svg class="ic" aria-hidden="true">
+                    <use href="#i-arrow" /></svg
+                ></a>
+              </p>
             </div>
           </div>
-          <p style="margin-top: 24px">
-            <a class="btn" href="register.html"
-              >Create your account<svg class="ic" aria-hidden="true">
-                <use href="#i-arrow" /></svg
-            ></a>
-          </p>
         </div>
       </section>
       <section class="sec tint process-section">

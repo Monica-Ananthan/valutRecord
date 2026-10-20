@@ -3440,6 +3440,16 @@ html[data-theme="dark"] .bar i {
     ),
     url("../img/homeCta.jpg");
 }
+.cta-section.hometwo-cta-sec .cta {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/hom2cta.jfif");
+}
 .cta-section.about-cta-sec .cta {
   background-image:
     linear-gradient(
@@ -3611,6 +3621,7 @@ html[data-theme="dark"] .bar i {
     border-left:0;
     border-right: 1px solid rgba(255, 255, 255, 0.22);
 }
+.bg-img-section .ho-banr,
 .bg-img-section .help-banr,
 .bg-img-section .sx,
 .bg-img-section .h-banr {
@@ -3639,6 +3650,16 @@ html[data-theme="dark"] .bar i {
       rgba(18, 32, 25, 0.25) 100%
     ),
     url("../img/home-cta.jpg");
+}
+.bg-img-section .ho-banr{
+    background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/secImg.jpg");
 }
 .bg-img-section .indus-banr{
     background-image:
@@ -3875,6 +3896,66 @@ html[data-theme="dark"] .bar i {
     background-size: contain;
     background-color:#fff;
 }
+.full-banner.io-card{
+    background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/keyAccess.webp");
+  color: #fff;
+}
+.full-banner.itw-card{
+    background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/fire.jfif");
+  color: #fff;
+}
+.full-banner.ith-card{
+    background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/Climate-Control-Pag.jpg");
+  color: #fff;
+}
+.full-banner.ifo-card{
+    background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/24cam.jpg");
+  color: #fff;
+}
+.full-banner.ifv-card{
+    background-image:
+    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ),
+    url("../img/certificate-of-destruction.jpg");
+  color: #fff;
+}
+.full-banner.isi-card{
+    background-image: linear-gradient(90deg, rgb(166 228 245 / 40%) 0%,
+     rgb(14 16 15 / 76%) 48%, rgb(115 213 182 / 37%) 100%), 
+     url(../img/secImg.jpg);
+}
 .full-banner.sec-card-ban{
     background-image: linear-gradient(90deg, rgb(166 228 245 / 40%) 0%,
      rgb(14 16 15 / 76%) 48%, rgb(115 213 182 / 37%) 100%), 
@@ -3972,6 +4053,10 @@ html[data-theme="dark"] .bar i {
     }
     .sx.sec-banr.stats-banner {
       display: grid;
+      grid-template-columns: 1fr;
+    }
+    .sx.sec-banr.stats-banner > div + div{
+      border:0;
     }
 }
 .sec-to .tour-layout {
@@ -4467,3 +4552,168 @@ select {
   }
 }
 
+
+/* Home dropdown menu */
+.nv-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nv-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+}
+
+.nv-dropdown:hover .nv-submenu,
+.nv-dropdown:focus-within .nv-submenu {
+  display: flex;
+}
+
+.nv-submenu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.nv-submenu a:hover {
+  background: var(--surface, #f3f4f6);
+}
+
+/* Keep dropdown usable on touch devices */
+.nv-dropdown:focus-within .nv-submenu {
+  display: flex;
+}
+.full-banner.svc-banr{
+    background-image:    linear-gradient(
+      90deg,
+      rgba(18, 32, 25, 0.91) 0%,
+      rgba(18, 32, 25, 0.76) 48%,
+      rgba(18, 32, 25, 0.25) 100%
+    ), url(../img/ser-card-banr.png);
+
+}
+/* Services page: records management capabilities */
+.svc-capabilities {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.svc-capability {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 28px 22px;
+  background: rgb(3 197 163 / 29%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.svc-capability:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+}
+
+.svc-cap-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: var(--surface, #f3f4f6);
+}
+
+.svc-cap-icon .ic {
+  width: 23px;
+  height: 23px;
+}
+
+.svc-cap-number {
+  margin-bottom: 8px;
+  color: #39e2ea;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.svc-capability h3 {
+  margin: 0 0 12px;
+  color: rgb(168 217 211 / 90%);
+}
+
+.svc-capability p {
+  margin: 0 0 22px;
+  color:#f7f7f7;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.svc-capability > a {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color:#0e1d31;
+  display: none;
+}
+
+.svc-capability > a span {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.svc-capability > a:hover span {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .svc-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-capabilities {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .svc-capability {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-capability,
+  .svc-capability > a span {
+    transition: none;
+  }
+
+  .svc-capability:hover {
+    transform: none;
+  }
+}
+.home-two-chip .bnr-chip{
+  min-width: 400px;
+}
