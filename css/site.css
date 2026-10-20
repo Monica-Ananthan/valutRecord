@@ -1350,3 +1350,65 @@ html[data-theme="dark"] .sec.tint {
     background: rgba(143, 230, 225, 0.12);
     border-color: rgba(143, 230, 225, 0.3);
 }
+@media (max-width: 900px) {
+    .bnr.xl{
+      display: block;
+    }
+    .bnr.xl .bnr-chips {
+        display: block;
+        position:unset;
+    }
+    .bnr.xl .bnr-chip{
+        min-width: 90%;
+        margin: auto;
+    }
+    .wrap.bnr-c.float-bnr {
+    margin-left: 0;
+    }
+}
+
+@media (min-width: 1032px) and (max-width: 1376px) and (hover: none) {
+    .bnr.xl .bnr-chip{
+        min-width: 345px;
+    }
+    .wrap.bnr-c.float-bnr {
+    margin-left: 0;
+    }
+      .nv .nv-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nv .nv-dropdown > .nv-home {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Keep submenu links visible inside the opened mobile menu */
+  .nv .nv-dropdown > .nv-submenu {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 0 4px 16px;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    gap: 2px;
+  }
+
+  .nv .nv-submenu a {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    text-align: start;
+    white-space: normal;
+  }
+}
