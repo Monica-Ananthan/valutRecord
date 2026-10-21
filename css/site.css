@@ -930,6 +930,12 @@ html[data-theme="dark"] .sec.tint {
     linear-gradient(135deg, var(--soft), var(--surf2));
   display: grid;
   place-items: center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), 
+      box-shadow 0.35s;
+}
+.mapc:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shH);
 }
 .mapc .pin {
   width: 64px;
