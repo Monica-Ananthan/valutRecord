@@ -611,14 +611,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const nl = $("#navLogin");
   if (nav && nl) {
     const a = document.createElement("a");
-    a.className = "nv-x log-btn btn s";
+    a.className = "log-btn btn s";
     a.href = nl.getAttribute("href");
     a.textContent = nl.textContent;
     nav.append(a);
   }
   if (side) {
     const o = document.createElement("a");
-    o.className = "nv-x btn ghost s";
+    o.className = "btn ghost s rmv-btn";
     o.href = "#";
     o.textContent = "Sign out";
     o.onclick = (e) => {

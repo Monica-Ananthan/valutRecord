@@ -4526,14 +4526,13 @@ select {
     border:0;
     position: absolute;
     bottom: 20px;
-    color:var(--mute);
+    color:var(--btnT) !important;
 
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: var(--acc);
     color: var(--btnT);
-    border: 1.5px solid transparent;
     border-radius: 10px;
     padding: 11px 20px;
     font: 600 0.95rem Inter, sans-serif;
@@ -5030,4 +5029,24 @@ select {
 .nv-dd:hover .nv-sub,.nv-dd:focus-within .nv-sub,.nv-dd.open .nv-sub{opacity:1;visibility:visible;translate:none;transition-delay:0s}
 .nv-sub a{white-space:nowrap}
 @media(max-width:1180px){.js-menu .nv-dd{display:block}.js-menu .nv-chev{display:none}.js-menu .nv-sub{position:static;opacity:1;visibility:visible;translate:none;box-shadow:none;border:0;border-radius:0;background:none;padding:0;padding-inline-start:12px;margin:2px 0 4px;margin-inline-start:10px;border-inline-start:2px solid var(--line);transition:none}}
- 
+a.btn.ghost.s.rmv-btn{
+  display: none;
+ }
+ nav.nv .log-btn.btn.s {
+    display: none;
+}
+nav.nv.open .log-btn.btn.s
+ {
+    display: block;
+    color: var(--soft);
+    margin-top: 15px;
+}
+.side.open .btn.ghost.s{
+  background: var(--acc);
+  color: var(--btnT) !important;
+  margin-top: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    padding: 11px 20px;
+    font: 600 0.95rem Inter, sans-serif;
+}

@@ -52,7 +52,7 @@
     font-size: 1rem;
   }
   .nv-reg {
-    display: block;
+    display: none;
     font-weight: 600;
     color: var(--acc);
   }
