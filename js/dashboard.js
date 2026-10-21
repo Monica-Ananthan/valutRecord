@@ -733,11 +733,33 @@ document.addEventListener("DOMContentLoaded", () => {
         .join("") || '<li class="nt-e">You are all caught up.</li>';
     $(".nt-m", panel).disabled = !n;
   }
-  const place = () => {
-    panel.style.top =
-      Math.round($(".hd").getBoundingClientRect().bottom + 8) + "px";
-    panel.style.insetInlineEnd = "16px";
-  };
+
+const place = () => {
+  const rect = btn.getBoundingClientRect();
+  const gap = 8;
+  const margin = 16;
+
+  const panelWidth = Math.min(360, window.innerWidth - 32);
+  const left = Math.max(
+    margin,
+    Math.min(rect.left, window.innerWidth - panelWidth - margin)
+  );
+
+  panel.style.width = `${panelWidth}px`;
+  panel.style.left = `${left}px`;
+  panel.style.right = "auto";
+  panel.style.insetInlineEnd = "auto";
+
+  const availableBelow = window.innerHeight - rect.bottom;
+  const panelHeight = panel.offsetHeight || 300;
+
+  if (availableBelow >= panelHeight + gap) {
+    panel.style.top = `${rect.bottom + gap}px`;
+  } else {
+    panel.style.top = `${Math.max(margin, rect.top - panelHeight - gap)}px`;
+  }
+};
+
   const close = () => {
     panel.hidden = true;
     btn.setAttribute("aria-expanded", "false");
@@ -756,8 +778,47 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.innerHTML =
       '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.500 2h-15L6 16ZM10 21h4"/></svg><span class="nt-b" hidden></span>';
     badge = $(".nt-b", btn);
-    const th = $("#tTheme", sp);
-    th ? sp.insertBefore(btn, th) : sp.prepend(btn);
+  
+    
+const th = $("#tTheme", sp);
+const side = $(".side");
+
+const desktopSlot = document.createElement("span");
+desktopSlot.className = "nt-desktop-slot";
+
+th ? sp.insertBefore(desktopSlot, th) : sp.prepend(desktopSlot);
+
+const mobileSlot = document.createElement("div");
+mobileSlot.className = "nt-side-slot";
+
+if (side) {
+  const signOut = side.querySelector(
+    '[data-logout], .side-logout'
+  );
+
+  if (signOut) {
+    signOut.before(mobileSlot);
+  } else {
+    side.appendChild(mobileSlot);
+  }
+}
+
+const media = window.matchMedia("(max-width: 1200px)");
+
+function moveNotification() {
+  if (panel && !panel.hidden) close();
+
+  if (media.matches && side) {
+    mobileSlot.appendChild(btn);
+  } else {
+    desktopSlot.appendChild(btn);
+  }
+}
+
+moveNotification();
+media.addEventListener("change", moveNotification);
+
+
     panel = document.createElement("div");
     panel.className = "nt-p";
     panel.hidden = true;

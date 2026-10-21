@@ -4504,7 +4504,7 @@ select {
     bottom: 0;
     left: 0;
     height: 100%;
-    padding-top: 10%;
+    padding-top: 95px;
     background: #0b2545;
     padding-left: 20px;
   }
@@ -5049,4 +5049,30 @@ nav.nv.open .log-btn.btn.s
     transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
     padding: 11px 20px;
     font: 600 0.95rem Inter, sans-serif;
+}
+
+.nt-desktop-slot {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nt-side-slot {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nt-side-slot .nt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 1200px) {
+  .nt-side-slot {
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+  }
 }

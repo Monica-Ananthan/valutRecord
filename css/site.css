@@ -59,6 +59,14 @@
   .hd-reg {
     display: none;
   }
+   .js-menu .nv-dd{display:flex;flex-wrap:wrap;align-items:center}
+  .js-menu .nv-dd>a{flex:1}
+  .js-menu .nv-chev{display:grid;width:46px;height:46px;margin:0;color:var(--ink);border-radius:10px}
+  .js-menu .nv-chev:hover{background:var(--surf2)}
+  .js-menu .nv-chev svg{width:18px;height:18px}
+  .js-menu .nv-dd:not(.open) .nv-chev svg{transform:none}
+  .js-menu .nv-dd .nv-sub{display:none;position:static;flex-basis:100%;opacity:1;visibility:visible;translate:none;box-shadow:none;border:0;border-radius:0;background:none;padding:0;padding-inline-start:12px;margin:2px 0 4px;margin-inline-start:10px;border-inline-start:2px solid var(--line);transition:none}
+  .js-menu .nv-dd.open .nv-sub{display:flex;animation:rise .25s ease both}
 }
 .to-top {
   display: grid;
