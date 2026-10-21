@@ -193,13 +193,18 @@ body[data-page="register"] .to-top {
 .form-bub .two{
   position: relative;
 }
+.form-bub .bnr-chips{
+    width: 49%;
+    right: 0;
+        bottom: 0;
+}
 .form-bub .bnr-chip{
- background: transparent;
+ /* background: transparent;
     right: -104%;
     bottom: -50px;
     border: 0;
     box-shadow: unset;
-    position: absolute;
+    position: absolute; */
     max-width: 100%;
 }
 .form-bub .bnr-chip-img-wrap{
@@ -210,13 +215,14 @@ body[data-page="register"] .to-top {
 
 .form-bub .float-img-sec{
     background-image: url(../img/bubble3.png);
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     display: block;
     border-radius: 12px;
-    height: 391px;
     max-width: 100%;
+    height: 270px;
+    max-height: 100%;
 }
 .bnr-chip:nth-child(2) {
   animation-delay: -3s;
@@ -687,6 +693,14 @@ html[data-theme="dark"] .sec.tint {
 }
 [dir="rtl"] .ts-ar svg {
   transform: scaleX(-1);
+}
+[dir="rtl"] .wrap.bnr-c.float-bnr {
+    margin-left: 0;
+    margin-right: 12%;
+}
+[dir="rtl"] .form-bub .bnr-chips{
+  right: unset;
+  left: 0;
 }
 
 /* tabs, calculator, table, chips, faq, map */
